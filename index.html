@@ -69,77 +69,105 @@
     color: #000;
     border: none;
     border-radius: 8px;
-    padding: 5px 10px;
+    padding: 6px 12px;
     cursor: pointer;
     font-size: 0.8rem;
     transition: 0.3s ease;
   }
 
-  button:hover {
-    opacity: 0.85;
+  /* دکمه در حالت کپی شده */
+  .copied {
+    background: orange !important;
+    color: white !important;
+    animation: pulse 0.4s ease;
+  }
+
+  /* انیمیشن */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.14); }
+    100% { transform: scale(1); }
   }
 </style>
 </head>
 
 <body>
 
-  <h1>شرکت</h1>
-  <h2>مهندسی امیر پوشش فرتاک</h2>
+<h1>شرکت</h1>
+<h2>مهندسی امیر پوشش فرتاک</h2>
 
-  <div class="instruction">
-    برای کپی شماره حساب، کارت یا شبا مورد نظر روی گزینه کپی کلیک کنید
-  </div>
+<div class="instruction">
+  برای کپی شماره حساب، کارت یا شبا مورد نظر روی گزینه کپی کلیک کنید
+</div>
 
-  <div class="bank">
-    <h3>حساب بانک سینا</h3>
-    <p>شماره کارت: <span id="sina-card">6393468878570002</span>
-      <button onclick="copyText('sina-card')">کپی</button></p>
-    <p>شماره حساب: <span id="sina-account">446846867001</span>
-      <button onclick="copyText('sina-account')">کپی</button></p>
-    <p>شماره شبا: <span id="sina-shaba">IR92 0590 0468 0044 6846 8670 01</span>
-      <button onclick="copyText('sina-shaba')">کپی</button></p>
-  </div>
+<!-- --- بانک ها --- -->
+<div class="bank">
+  <h3>حساب بانک سینا</h3>
+  <p>شماره کارت: <span id="sina-card">6393468878570002</span>
+    <button onclick="copyText(this, 'sina-card')">کپی</button></p>
 
-  <div class="bank">
-    <h3>حساب بانک ملی</h3>
-    <p>شماره کارت: <span id="melli-card">6037998821370011</span>
-      <button onclick="copyText('melli-card')">کپی</button></p>
-    <p>شماره حساب: <span id="melli-account">0114152664004</span>
-      <button onclick="copyText('melli-account')">کپی</button></p>
-    <p>شماره شبا: <span id="melli-shaba">IR94 0170 0000 0011 4152 6640 04</span>
-      <button onclick="copyText('melli-shaba')">کپی</button></p>
-  </div>
+  <p>شماره حساب: <span id="sina-account">446846867001</span>
+    <button onclick="copyText(this, 'sina-account')">کپی</button></p>
 
-  <div class="bank">
-    <h3>حساب بانک شهر</h3>
-    <p>شماره حساب: <span id="shahr-account">7001004486620</span>
-      <button onclick="copyText('shahr-account')">کپی</button></p>
-    <p>شماره شبا: <span id="shahr-shaba">IR95 0610 0000 0700 1004 4866 20</span>
-      <button onclick="copyText('shahr-shaba')">کپی</button></p>
-  </div>
+  <p>شماره شبا: <span id="sina-shaba">IR92 0590 0468 0044 6846 8670 01</span>
+    <button onclick="copyText(this, 'sina-shaba')">کپی</button></p>
+</div>
 
-  <div class="bank">
-    <h3>حساب بانک سرمایه</h3>
-    <p>شماره حساب: <span id="sarmaye-account">16062623699751</span>
-      <button onclick="copyText('sarmaye-account')">کپی</button></p>
-    <p>شماره شبا: <span id="sarmaye-shaba">IR06 0580 1606 0260 2369 9750 01</span>
-      <button onclick="copyText('sarmaye-shaba')">کپی</button></p>
-  </div>
+<div class="bank">
+  <h3>حساب بانک ملی</h3>
+  <p>شماره کارت: <span id="melli-card">6037998821370011</span>
+    <button onclick="copyText(this, 'melli-card')">کپی</button></p>
 
-  <div class="bank">
-    <h3>حساب بانک صادرات</h3>
-    <p>شماره حساب: <span id="saderat-account">0118073237004</span>
-      <button onclick="copyText('saderat-account')">کپی</button></p>
-    <p>شماره شبا: <span id="saderat-shaba">IR04 0190 0000 0011 8073 2370 04</span>
-      <button onclick="copyText('saderat-shaba')">کپی</button></p>
-  </div>
+  <p>شماره حساب: <span id="melli-account">0114152664004</span>
+    <button onclick="copyText(this, 'melli-account')">کپی</button></p>
 
+  <p>شماره شبا: <span id="melli-shaba">IR94 0170 0000 0011 4152 6640 04</span>
+    <button onclick="copyText(this, 'melli-shaba')">کپی</button></p>
+</div>
+
+<div class="bank">
+  <h3>حساب بانک شهر</h3>
+  <p>شماره حساب:<span id="shahr-account">7001004486620</span>
+    <button onclick="copyText(this, 'shahr-account')">کپی</button></p>
+
+  <p>شماره شبا:<span id="shahr-shaba">IR95 0610 0000 0700 1004 4866 20</span>
+    <button onclick="copyText(this, 'shahr-shaba')">کپی</button></p>
+</div>
+
+<div class="bank">
+  <h3>حساب بانک سرمایه</h3>
+  <p>شماره حساب:<span id="sarmaye-account">16062623699751</span>
+    <button onclick="copyText(this, 'sarmaye-account')">کپی</button></p>
+
+  <p>شماره شبا:<span id="sarmaye-shaba">IR06 0580 1606 0260 2369 9750 01</span>
+    <button onclick="copyText(this, 'sarmaye-shaba')">کپی</button></p>
+</div>
+
+<div class="bank">
+  <h3>حساب بانک صادرات</h3>
+  <p>شماره حساب:<span id="saderat-account">0118073237004</span>
+    <button onclick="copyText(this, 'saderat-account')">کپی</button></p>
+
+  <p>شماره شبا:<span id="saderat-shaba">IR04 0190 0000 0011 8073 2370 04</span>
+    <button onclick="copyText(this, 'saderat-shaba')">کپی</button></p>
+</div>
 
 
 <script>
-function copyText(id) {
+function copyText(button, id) {
   const text = document.getElementById(id).innerText.replace(/\s/g, '');
-  navigator.clipboard.writeText(text);
+
+  navigator.clipboard.writeText(text).then(() => {
+
+    let oldText = button.innerText;
+    button.classList.add("copied");
+    button.innerText = "کپی شد ✅";
+
+    setTimeout(() => {
+      button.classList.remove("copied");
+      button.innerText = oldText;
+    }, 2000);
+  });
 }
 </script>
 
